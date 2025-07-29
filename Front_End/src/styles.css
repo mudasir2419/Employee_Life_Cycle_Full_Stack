@@ -1,0 +1,65 @@
+section {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+
+.card {
+  border-radius: 12px;
+  background: #fff;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.auth-links a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+.auth-links span {
+  color: #6c757d;
+}
+
+
+
+
+/* Global Layout Styling */
+section {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 0;
+}
+
+.card {
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3, h4 {
+  font-weight: 600;
+  color: #333;
+}
+
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.btn {
+  font-weight: 500;
+}

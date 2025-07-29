@@ -1,0 +1,20 @@
+
+
+/* dashboard syles  */
+.card {
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.card {
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.03);
+}
+.table td,
+.table th {
+  vertical-align: middle;
+}

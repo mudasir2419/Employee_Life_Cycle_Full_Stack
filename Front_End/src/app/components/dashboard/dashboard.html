@@ -1,0 +1,83 @@
+<section class="d-flex justify-content-center mt-5">
+  <div class="card shadow-lg p-4 w-100" style="max-width: 1140px;">
+    <h2 class="text-center text-dark mb-4">Dashboard</h2>
+
+    <!-- Stat Cards -->
+    <div class="row g-4 mb-4">
+      <div class="col-md-3">
+        <div class="card text-white bg-primary shadow-sm">
+          <div class="card-body text-center">
+            <h6>Total Employees</h6>
+            <h2>{{ stats.employees }}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-white bg-success shadow-sm">
+          <div class="card-body text-center">
+            <h6>Onboarded</h6>
+            <h2>{{ stats.onboarded }}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-white bg-danger shadow-sm">
+          <div class="card-body text-center">
+            <h6>Offboarded</h6>
+            <h2>{{ stats.offboarded }}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-white bg-info shadow-sm">
+          <div class="card-body text-center">
+            <h6>Departments</h6>
+            <h2>{{ stats.departments }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task Queue Table -->
+    <div class="mt-5">
+      <h4 class="mb-3">Task Queue (Latest 5)</h4>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th>Employee</th>
+              <th>Task</th>
+              <th>Status</th>
+              <th>Retry</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let task of queue; trackBy: trackByTaskId">
+              <td>{{ task.employee_name }}</td>
+              <td class="text-capitalize">{{ task.task_type }}</td>
+              <td>
+                <span [ngClass]="getStatusClass(task.status)">
+                  {{ task.status }}
+                </span>
+              </td>
+              <td>
+                <button (click)="retryTask(task)"
+                        class="btn btn-sm btn-outline-warning"
+                        [disabled]="!(task.status === 'failed' || (task.status === 'pending' && task.retryVisible))"
+                        [ngClass]="{ 'opacity-50 cursor-not-allowed': !(task.status === 'failed' || (task.status === 'pending' && task.retryVisible)) }">
+                  Retry
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-end">
+        <button (click)="toggleShowAll()" class="btn btn-primary mt-3">
+          {{ showAllTasks ? 'Show Less' : 'View All Tasks' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+.card {
+  min-height: 450px;
+  font-size: 1.05rem;
+}
+
+.form-control-lg {
+  height: calc(1.8em + 1.5rem + 2px);
+  font-size: 1.1rem;
+}
